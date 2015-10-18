@@ -136,7 +136,7 @@ def get_and_trim_alignments(params):
         # read new alignment
         trimmed_aln_file = "{}-gb".format(align_file)
         with open(trimmed_aln_file, 'rU') as trimmed_aln:
-            aln = AlignIO.read(trimmed_aln, "fasta", alphabet=Gapped(IUPAC.ExtendedIUPACDNA()))
+            aln = AlignIO.read(trimmed_aln, args.input_format, alphabet=Gapped(IUPAC.ExtendedIUPACDNA()))
         # remove the qblocks file
         os.remove(trimmed_aln_file)
         sys.stdout.write(".")
